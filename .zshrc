@@ -1,0 +1,197 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export TERM='xterm-256color'
+export DOTFILES_CFG=$HOME/.dotfiles-cfg/
+alias dotfiles='/usr/bin/git --git-dir=$DOTFILES_CFG --work-tree=$HOME'
+
+# set PATH
+export PATH=$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=${HOME}/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git brew common-aliases vi-mode history osx wd fast-syntax-highlighting tmux)
+
+export ZSH_TMUX_ITERM2=true
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Preferred editor
+export EDITOR='nvim'
+export VISUAL="$EDITOR"
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# iterm integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# aliases
+alias thal='ssh thalassa'
+alias zeus='ssh hector@zeus.upf.edu'
+alias jn='jupyter lab'
+unalias rm
+
+## faster defaults 
+alias grep="rg"
+alias cat="bat -p"
+alias less="bat"
+alias ls="exa -ll"
+alias vi="nvim"
+
+# z https://github.com/rupa/z
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     . $HOME/.linuxbrew/etc/profile.d/z.sh;;
+    Darwin*)    . /usr/local/etc/profile.d/z.sh;;
+esac
+
+# my scripts
+export PYTHONPATH=$HOME/projects/spada:${PYTHONPATH}
+export PATH=${HOME}/projects/gwas-tools/bin:${PATH}
+
+# programming languages envs
+## java
+if grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts && which java > /dev/null; then export JAVA_HOME=$(/usr/libexec/java_home); fi
+
+## perl
+export PATH=$HOME/perl5/bin:$PATH
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+
+## nextflow
+export NXF_WORK="$HOME/.nextflow/work"
+
+## python
+alias python='ipython --no-confirm-exit --TerminalInteractiveShell.editing_mode=vi'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$($HOME'/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="$HOME/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+if grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts
+then
+    #conda activate laptop
+elif grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts
+then
+    #conda activate gpu
+else
+    #conda activate general
+fi
+
+## r
+alias R='R --no-save'
+alias Rscript='Rscript --vanilla'
+
+# fuzzy search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --ignore-file ${HOME}/.ignore --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# host specific functions
+HOSTNAME="$(hostname)"  # Conda clobbers HOST, so we save the real hostname into another variable.
+
+precmd() {
+    OLDHOST="${HOST}"
+    HOST="${HOSTNAME}"
+}
+
+preexec() {
+    HOST="${OLDHOST}"
+}
+
+if [[ $(hostname -s) == "master01" ]]; then source $DOTFILES_CFG/env/bio3.sh; fi
+if grep --quiet `hostname` $DOTFILES_CFG/env/mines_hosts; then source $DOTFILES_CFG/env/mines.sh; fi
+if grep --quiet `hostname` $DOTFILES_CFG/env/slurm_hosts; then source $DOTFILES_CFG/env/slurm.sh; fi
+if grep --quiet `hostname` $DOTFILES_CFG/env/kyodai_hosts; then source $DOTFILES_CFG/env/kyodai.sh; fi
+if grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts; then source $DOTFILES_CFG/env/gpu.sh; fi
+if grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts; then source $DOTFILES_CFG/env/laptop.sh; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

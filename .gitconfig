@@ -1,0 +1,15 @@
+[user]
+	email = hclimente@gmail.com
+	name = hclimente 
+
+[color]
+  ui = auto
+
+[core]
+	excludesfile = ~/.gitignore
+
+[push]
+	default = simple
+
+[pull]
+    rebase = false

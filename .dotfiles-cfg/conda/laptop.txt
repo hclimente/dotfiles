@@ -1,0 +1,11 @@
+bioconductor-rcy3
+dgl
+jupyterlab
+jupyter_nbextensions_configurator
+r-cowplot
+r-irkernel
+r-ggnetwork
+r-ggrepel
+r-glue
+r-tidygraph
+rstudio

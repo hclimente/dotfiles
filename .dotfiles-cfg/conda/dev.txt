@@ -1,0 +1,15 @@
+libblas=*=*_mkl
+r-base
+r-xml2
+r-openssl
+r-git2r
+bioconductor-bioccheck
+ipython
+numpy
+scikit-learn
+scipy
+r-biocmanager
+r-devtools
+r-pak
+rstudio
+pytest

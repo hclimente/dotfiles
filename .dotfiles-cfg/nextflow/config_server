@@ -1,0 +1,26 @@
+docker.enabled = true
+NXF_WORK = '/Users/hclimente/.nextflow/work'
+
+profiles {
+
+    standard {
+        process.executor = 'local'
+        executor.queueSize = 60
+    }
+
+    quickie {
+	process.executor = 'local'
+        process.queueSize = 128
+    }
+
+    cluster {
+        process.executor = 'local'
+        process.queueSize = 60
+    }
+
+    bigmem {
+        process.executor = 'local'
+        process.queueSize = 5
+    }
+}
+

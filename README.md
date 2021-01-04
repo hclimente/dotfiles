@@ -60,3 +60,19 @@ conda create --name dev --file $DOTFILES_CFG/conda/dev.txt --file $DOTFILES_CFG/
 # r environment
 R -e "IRkernel::installspec()"
 ```
+
+# Additional macOS software
+
+```
+brew install --cask anki
+brew install --cask firefox
+brew install --cask pycharm-ce && ln -s .dotfiles/ideavimrc .ideavimrc
+brew install --cask finicky && ln .dotfiles/finicky.js .finicky.js
+brew install --cask dozer
+brew tap homebrew/cask-fonts && brew install --cask font-fira-code
+brew install --cask spotify
+brew install --cask visual-studio-code
+brew install --cask docker
+
+wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
+```

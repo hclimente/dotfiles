@@ -7,7 +7,7 @@ fi
 
 export TERM='xterm-256color'
 export DOTFILES_CFG=$HOME/.dotfiles-cfg/
-alias dotfiles='/usr/bin/git --git-dir=$DOTFILES_CFG --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
 
 # set PATH
 export PATH=$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:$PATH

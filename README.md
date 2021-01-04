@@ -1,7 +1,6 @@
 ```
-export DOTFILES_CFG=$HOME/.dotfiles-cfg/
-alias dotfiles='/usr/bin/git --git-dir=$DOTFILES_CFG/.git --work-tree=$HOME'
-git clone --bare git@github.com:hclimente/dotfiles.git $DOTFILES_CFG/.git
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+git clone --bare git@github.com:hclimente/dotfiles.git $HOME/.cfg/
 dotfiles checkout
 ```
 

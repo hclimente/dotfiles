@@ -5,6 +5,7 @@ r-openssl
 r-git2r
 ipython
 numpy
+scikit-image
 scikit-learn
 scipy
 pytorch

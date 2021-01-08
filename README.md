@@ -22,7 +22,7 @@ export DOTFILES_CFG=$HOME/.dotfiles-cfg/
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-export PATH=/home/hclimente/.linuxbrew/bin:$PATH
+export PATH=$HOME/.linuxbrew/bin:$PATH
 
 # install zsh and oh-my-zsh
 brew install zsh bash-completion

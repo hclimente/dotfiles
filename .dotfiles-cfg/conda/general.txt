@@ -5,6 +5,8 @@ r-openssl
 r-git2r
 ipython
 numpy
+pandas
+seaborn
 scikit-image
 scikit-learn
 scipy

@@ -9,6 +9,9 @@ export TERM='xterm-256color'
 export DOTFILES_CFG=$HOME/.dotfiles-cfg/
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
 
+# disable brew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # set PATH
 export PATH=$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:$PATH

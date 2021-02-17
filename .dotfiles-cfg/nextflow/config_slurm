@@ -9,8 +9,8 @@ profiles {
 
     bigmem {
         process.executor = 'slurm'
-        process.queue = 'urtgen_24hrs'
-	process.memory = '60GB'
+        process.queue = 'urtgen_5days'
+        process.memory = '60GB'
         executor.queueSize = 36
     }
 
@@ -18,7 +18,7 @@ profiles {
         process.executor = 'slurm'
         process.queue = '$GPU_Q'
         process.memory = '40GB'
-	process.clusterOptions = '--gres=gpu:1'
+        process.clusterOptions = '--gres=gpu:1'
     }
 
 }

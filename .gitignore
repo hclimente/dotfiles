@@ -10,6 +10,9 @@ work/
 *.bim
 *.fam
 
+### pycharm ###
+.idea
+
 # Created by https://www.toptal.com/developers/gitignore/api/latex,jupyternotebooks,macos,python,r,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=latex,jupyternotebooks,macos,python,r,visualstudiocode
 

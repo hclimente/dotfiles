@@ -2,6 +2,7 @@ bioconductor-rcy3
 dgl
 jupyterlab
 jupyter_nbextensions_configurator
+jupyter_contrib_nbextensions
 r-cowplot
 r-irkernel
 r-ggnetwork

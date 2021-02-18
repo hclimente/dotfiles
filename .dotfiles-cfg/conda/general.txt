@@ -3,8 +3,10 @@ r-base
 r-xml2
 r-openssl
 r-git2r
+h5py
 ipython
 numpy
+openpyxl
 pandas
 seaborn
 scikit-image

@@ -111,6 +111,7 @@ unalias rm
 ## faster defaults 
 alias grep="rg"
 alias cat="bat -p"
+alias conda='mamba'
 alias less="bat"
 alias ls="exa -ll"
 alias vi="nvim"

@@ -5,6 +5,7 @@ r-openssl
 r-git2r
 h5py
 ipython
+mamba
 numpy
 openpyxl
 pandas

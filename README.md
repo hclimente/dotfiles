@@ -52,7 +52,7 @@ elif grep --quiet `hostname` $DOTFILES_CFG/env/kyodai_hosts; then ln -s $DOTFILE
 elif grep --quiet `hostname` $DOTFILES_CFG/env/slurm_hosts; then ln -s $DOTFILES_CFG/nextflow/config_slurm $HOME/.nextflow/config; fi
 
 # conda environments
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p -b
 conda install mamba -n base -c conda-forge
 
 ## general (python + R)

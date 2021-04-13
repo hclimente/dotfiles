@@ -538,3 +538,9 @@ vignettes/*.pdf
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/latex,jupyternotebooks,macos,python,r,visualstudiocode
+
+# secrets
+.gitsecret/keys/random_seed
+!*.secret
+.ssh/config
+.dotfiles-cfg/nextflow/tower

@@ -171,14 +171,16 @@ preexec() {
     HOST="${OLDHOST}"
 }
 
-
-if grep --quiet `hostname` $DOTFILES_CFG/env/slurm_hosts; then
+if grep --quiet $HOST $DOTFILES_CFG/env/slurm_hosts; then
     source $DOTFILES_CFG/env/slurm.sh
     HOSTTYPE='cluster'
-elif grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts; then
+elif grep --quiet $HOST $DOTFILES_CFG/env/sge_hosts; then
+    source $DOTFILES_CFG/env/sge.sh
+    HOSTTYPE='cluster'
+elif grep --quiet $HOST $DOTFILES_CFG/env/gpu_hosts; then
     source $DOTFILES_CFG/env/gpu.sh
     HOSTTYPE='server'
-elif grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts; then
+elif grep --quiet $HOST $DOTFILES_CFG/env/laptop_hosts; then
     if which java > /dev/null; then
         export JAVA_HOME=$(/usr/libexec/java_home)
     fi
@@ -193,19 +195,19 @@ else
 fi
 export HOSTTYPE
 
-if grep --quiet `hostname` $DOTFILES_CFG/env/mines_hosts; then
+if grep --quiet $HOST $DOTFILES_CFG/env/mines_hosts; then
     source $DOTFILES_CFG/env/mines.sh
     HOSTLOC='mines'
-elif grep --quiet `hostname` $DOTFILES_CFG/env/kyodai_hosts; then
+elif grep --quiet $HOST $DOTFILES_CFG/env/kyodai_hosts; then
     source $DOTFILES_CFG/env/kyodai.sh
     HOSTLOC='kyodai'
-elif [[ $(hostname -s) == "master01" ]]; then
+elif [[ $HOST == "master01" ]]; then
     source $DOTFILES_CFG/env/bio3.sh
     HOSTLOC='bio3'
 else
-    HOSTTYPE='unknown'
+    HOSTLOC='unknown'
 fi
-export HOSTTYPE
+export HOSTLOC
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

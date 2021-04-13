@@ -1,0 +1,28 @@
+NXF_OPTS = '-Xms1g -Xmx10g'
+
+profiles {
+
+    cluster {
+        process.executor = "$EXECUTOR"
+        process.queue = "$SHORT_Q"
+        process.memory = "$SHORT_Q_MEM"
+        process.clusterOptions = "$SHORT_Q_OPTS"
+        executor.queueSize = 30
+    }
+
+    bigmem {
+        process.executor = "$EXECUTOR"
+        process.queue = "$LONG_Q"
+        process.memory = "$LONG_Q_MEM"
+        process.clusterOptions = "$LONG_Q_OPTS"
+        executor.queueSize = 36
+    }
+
+    gpu {
+        process.executor = "$EXECUTOR"
+        process.queue = '$GPU_Q'
+        process.memory = "$GPU_Q_MEM"
+        process.clusterOptions = "$GPU_Q_OPTS"
+    }
+
+}

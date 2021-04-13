@@ -7,7 +7,7 @@ fi
 
 export TERM='xterm-256color'
 export DOTFILES_CFG=$HOME/.dotfiles-cfg/
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
+alias dit='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
 
 # disable brew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -99,9 +99,6 @@ export VISUAL="$EDITOR"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# iterm integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # aliases
 alias thal='ssh thalassa'
 alias zeus='ssh hector@zeus.upf.edu'
@@ -127,8 +124,6 @@ export PYTHONPATH=$HOME/projects/spada:${PYTHONPATH}
 export PATH=${HOME}/projects/gwas-tools/bin:${PATH}
 
 # programming languages envs
-## java
-if grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts && which java > /dev/null; then export JAVA_HOME=$(/usr/libexec/java_home); fi
 
 ## perl
 export PATH=$HOME/perl5/bin:$PATH
@@ -136,9 +131,6 @@ PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
-
-## nextflow
-export NXF_WORK="$HOME/.nextflow/work"
 
 ## python
 alias python='ipython --no-confirm-exit --TerminalInteractiveShell.editing_mode=vi'
@@ -157,16 +149,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-if grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts
-then
-    #conda activate laptop
-elif grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts
-then
-    #conda activate gpu
-else
-    #conda activate general
-fi
 
 ## r
 alias R='R --no-save'
@@ -189,12 +171,42 @@ preexec() {
     HOST="${OLDHOST}"
 }
 
-if [[ $(hostname -s) == "master01" ]]; then source $DOTFILES_CFG/env/bio3.sh; fi
-if grep --quiet `hostname` $DOTFILES_CFG/env/mines_hosts; then source $DOTFILES_CFG/env/mines.sh; fi
-if grep --quiet `hostname` $DOTFILES_CFG/env/slurm_hosts; then source $DOTFILES_CFG/env/slurm.sh; fi
-if grep --quiet `hostname` $DOTFILES_CFG/env/kyodai_hosts; then source $DOTFILES_CFG/env/kyodai.sh; fi
-if grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts; then source $DOTFILES_CFG/env/gpu.sh; fi
-if grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts; then source $DOTFILES_CFG/env/laptop.sh; fi
+
+if grep --quiet `hostname` $DOTFILES_CFG/env/slurm_hosts; then
+    source $DOTFILES_CFG/env/slurm.sh
+    HOSTTYPE='cluster'
+elif grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts; then
+    source $DOTFILES_CFG/env/gpu.sh
+    HOSTTYPE='server'
+elif grep --quiet `hostname` $DOTFILES_CFG/env/laptop_hosts; then
+    if which java > /dev/null; then
+        export JAVA_HOME=$(/usr/libexec/java_home)
+    fi
+    
+    # iterm integration
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+    source $DOTFILES_CFG/env/laptop.sh
+    HOSTTYPE='laptop'
+else
+    HOSTTYPE='unknown'
+fi
+export HOSTTYPE
+
+if grep --quiet `hostname` $DOTFILES_CFG/env/mines_hosts; then
+    source $DOTFILES_CFG/env/mines.sh
+    HOSTLOC='mines'
+elif grep --quiet `hostname` $DOTFILES_CFG/env/kyodai_hosts; then
+    source $DOTFILES_CFG/env/kyodai.sh
+    HOSTLOC='kyodai'
+elif [[ $(hostname -s) == "master01" ]]; then
+    source $DOTFILES_CFG/env/bio3.sh
+    HOSTLOC='bio3'
+else
+    HOSTTYPE='unknown'
+fi
+export HOSTTYPE
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

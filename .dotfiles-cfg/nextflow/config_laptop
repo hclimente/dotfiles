@@ -9,7 +9,7 @@ profiles {
     }
 
     quickie {
-	process.executor = 'local'
+	    process.executor = 'local'
         process.queueSize = 4
     }
 

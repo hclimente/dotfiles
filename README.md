@@ -35,7 +35,7 @@ mv .zshrc.pre-oh-my-zsh .zshrc
 echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 
 # basic cli tools
-brew install tmux gcc findutils z exa nvim rg bat node
+brew install tmux gcc findutils z exa nvim rg bat node git-secret
 
 ## neovim config
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -46,6 +46,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 brew cask install java
 curl -s https://get.nextflow.io | bash
 mkdir bin && mv nextflow bin/
+dit reveal
 
 # conda environments
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p -b

@@ -175,6 +175,8 @@ preexec() {
 if grep --quiet `hostname` $DOTFILES_CFG/env/slurm_hosts; then
     source $DOTFILES_CFG/env/slurm.sh
     HOSTTYPE='cluster'
+elif grep --quiet $HOST $DOTFILES_CFG/env/server_hosts; then
+    HOSTTYPE='server'
 elif grep --quiet `hostname` $DOTFILES_CFG/env/gpu_hosts; then
     source $DOTFILES_CFG/env/gpu.sh
     HOSTTYPE='server'

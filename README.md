@@ -35,7 +35,7 @@ mv .zshrc.pre-oh-my-zsh .zshrc
 echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 
 # basic cli tools
-brew install tmux gcc findutils z exa nvim rg bat node git-secret
+brew install tmux gcc findutils z exa nvim rg bat node
 
 ## neovim config
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -68,6 +68,27 @@ mamba create --name dev --file $DOTFILES_CFG/conda/dev.txt --file $DOTFILES_CFG/
 R -e "IRkernel::installspec()"
 ```
 
+# Reveal secrets
+
+On a trusted machine:
+
+```
+gpg --export-secret-key me@mail.com > ~/my-key.asc
+scp my-key.asc me@server:~/
+```
+
+On the new machine:
+
+```
+brew install git-secrets
+
+gpg --import my-key.asc
+dit secret tell me@mail.com
+dit secret reveal
+```
+
+Follow instructions from https://git-secret.io/ to encrypt/decrypt secrets.
+
 # Additional macOS software
 
 ```
@@ -81,7 +102,6 @@ brew install --cask spotify
 brew install --cask visual-studio-code
 brew install --cask docker
 brew install --cask signal
-brew install --cask beardedspice
 
 wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
 ```

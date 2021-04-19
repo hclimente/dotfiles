@@ -102,6 +102,7 @@ brew install --cask spotify
 brew install --cask visual-studio-code
 brew install --cask docker
 brew install --cask signal
+brew install --cask alfred
 
 wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
 ```

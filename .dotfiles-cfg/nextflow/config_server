@@ -22,5 +22,11 @@ profiles {
         process.executor = 'local'
         process.queueSize = 5
     }
+    
+    gpu {
+        process.executor = 'local'
+        process.queueSize = 12 
+        executor.cpus = 10
+    }
 }
 

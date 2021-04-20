@@ -9,18 +9,18 @@ profiles {
     }
 
     quickie {
-	process.executor = 'local'
-        process.queueSize = 128
+    	process.executor = 'local'
+        executor.queueSize = 128
     }
 
     cluster {
         process.executor = 'local'
-        process.queueSize = 60
+        executor.queueSize = 30
     }
 
     bigmem {
         process.executor = 'local'
-        process.queueSize = 5
+        executor.queueSize = 5
     }
 }
 

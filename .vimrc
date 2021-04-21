@@ -53,3 +53,4 @@ set background=dark
 
 " mappings
 map <leader>rn :set rnu!<cr>
+nnoremap <leader>p oimport pdb; pdb.set_trace()<Esc>

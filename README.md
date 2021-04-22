@@ -80,7 +80,7 @@ scp my-key.asc me@server:~/
 On the new machine:
 
 ```
-brew install git-secrets
+brew install git-secret
 
 gpg --import my-key.asc
 dit secret tell me@mail.com

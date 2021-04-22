@@ -6,3 +6,4 @@ channels:
 channel_priority: strict
 auto_activate_base: false
 report_errors: false
+env_prompt: ({name})

@@ -5,7 +5,7 @@ dit checkout
 if [ $? = 0 ]; then
   echo "Checked out config.";
 else
-  mkdir -p dotfiles-backup
+  mkdir -p dotfiles-backup/.config dotfiles-backup/.nextflow
   echo "Backing up pre-existing dot files.";
   dit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} dotfiles-backup/{}
 fi;
@@ -80,7 +80,7 @@ scp my-key.asc me@server:~/
 On the new machine:
 
 ```
-brew install git-secrets
+brew install git-secret
 
 gpg --import my-key.asc
 dit secret tell me@mail.com

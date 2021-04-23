@@ -5,7 +5,7 @@ dit checkout
 if [ $? = 0 ]; then
   echo "Checked out config.";
 else
-  mkdir -p dotfiles-backup
+  mkdir -p dotfiles-backup/.config dotfiles-backup/.nextflow
   echo "Backing up pre-existing dot files.";
   dit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} dotfiles-backup/{}
 fi;

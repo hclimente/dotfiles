@@ -164,6 +164,10 @@ alias Rscript='Rscript --vanilla'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --ignore-file ${HOME}/.ignore --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# autocomplete make with targets
+zstyle ':completion:*:*:make:*' tag-order 'targets'
+autoload -U compinit && compinit
+
 # host specific functions
 HOSTNAME="$(hostname)"  # Conda clobbers HOST, so we save the real hostname into another variable.
 

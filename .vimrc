@@ -39,6 +39,7 @@ Plug 'LukeGoodsell/nextflow-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'lervag/vimtex'
 Plug 'farmergreg/vim-lastplace'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 

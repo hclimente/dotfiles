@@ -37,11 +37,6 @@ echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 # basic cli tools
 brew install tmux gcc findutils z exa nvim rg bat node
 
-## neovim config
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-# :PlugInstall!
-
 # nextflow
 brew cask install java
 curl -s https://get.nextflow.io | bash

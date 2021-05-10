@@ -29,6 +29,13 @@ set expandtab
 " remap jj to esc
 :imap jj <Esc>
 
+" install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " plugins
 call plug#begin('~/.vim/plugged')
 
@@ -40,9 +47,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'lervag/vimtex'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+let g:airline_powerline_fonts = 1
 let g:tex_flavor = 'latex'
 
 " fuzzy search

@@ -10,6 +10,9 @@ let mapleader = " "
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+"" display relative line numbers
+set relativenumber
+
 "" file explorer options
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
@@ -48,6 +51,7 @@ Plug 'lervag/vimtex'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'github/copilot.vim'
 
 call plug#end()
 

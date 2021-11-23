@@ -45,7 +45,7 @@ dit reveal
 
 # conda environments
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -p -b
-conda install mamba -n base -c conda-forge
+conda install cookiecutter nextflow mamba  -n base -c conda-forge
 
 ## general (python + R)
 mamba create --name general --file $DOTFILES_CFG/conda/general.txt && conda activate general && echo "libblas[build=*mkl]" >> ${CONDA_PREFIX}/conda-meta/pinned
@@ -98,6 +98,9 @@ brew install --cask visual-studio-code
 brew install --cask docker
 brew install --cask signal
 brew install --cask alfred
+brew install --cask iina
+brew install cookiecutter
+brew install dvc
 
 wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
 ```

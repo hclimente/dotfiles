@@ -96,9 +96,9 @@ brew tap homebrew/cask-fonts && brew install --cask font-fira-code
 brew install --cask spotify
 brew install --cask visual-studio-code
 brew install --cask docker
-brew install --cask signal
 brew install --cask alfred
 brew install --cask iina
+brew install --cask ferdi
 brew install cookiecutter
 brew install dvc
 

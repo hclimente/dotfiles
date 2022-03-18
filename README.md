@@ -101,6 +101,7 @@ brew install --cask iina
 brew install --cask ferdi
 brew install cookiecutter
 brew install dvc
+brew install --cask zotero
 
 wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
 ```

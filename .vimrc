@@ -51,7 +51,6 @@ Plug 'lervag/vimtex'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'github/copilot.vim'
 
 call plug#end()
 

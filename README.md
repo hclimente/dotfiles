@@ -63,7 +63,13 @@ mamba create --name dev --file $DOTFILES_CFG/conda/dev.txt --file $DOTFILES_CFG/
 R -e "IRkernel::installspec()"
 ```
 
-# Reveal secrets
+# Git secrets
+
+To encrypt secrets:
+
+```
+dit secret hide
+```
 
 On a trusted machine:
 

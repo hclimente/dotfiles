@@ -111,3 +111,11 @@ brew install --cask zotero
 
 wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
 ```
+
+# For older servers
+
+```
+# edit or create ~/.curlrc file and add "--insecure" to it then:
+HOMEBREW_CURLRC=1 brew install curl
+# delete ~/.curlrc file or remove the "--insecure" from it
+```

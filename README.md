@@ -37,6 +37,11 @@ echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 # basic cli tools
 brew install tmux gcc findutils z exa nvim rg bat node
 
+# install 
+git clone https://github.com/gpakosz/.tmux.git ~/.oh-my-tmux
+ln -s -f ~/.oh-my-tmux/.tmux.conf ~/.tmux.conf
+cp ~/.oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
+
 # nextflow
 brew cask install java
 curl -s https://get.nextflow.io | bash

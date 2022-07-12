@@ -86,7 +86,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Preferred editor
-export EDITOR='nvim'
+export EDITOR='vi'
 export VISUAL="$EDITOR"
 
 # Compilation flags
@@ -138,8 +138,6 @@ PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 ## python
-alias python='ipython --no-confirm-exit --TerminalInteractiveShell.editing_mode=vi'
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
@@ -243,3 +241,9 @@ export HOSTLOC
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hclimente/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hclimente/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hclimente/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hclimente/google-cloud-sdk/completion.zsh.inc'; fi

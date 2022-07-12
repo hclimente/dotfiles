@@ -6,8 +6,8 @@ set nu
 set incsearch
 let mapleader = " "
 
-"" 80 char column
-set colorcolumn=80
+"" black's 88 char column
+set colorcolumn=88
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 "" display relative line numbers
@@ -42,15 +42,15 @@ endif
 " plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
-Plug 'LukeGoodsell/nextflow-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'Mxrcon/nextflow-vim'
 Plug 'lervag/vimtex'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 

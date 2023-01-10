@@ -1,4 +1,4 @@
-docker.enabled = true
+// docker.enabled = true
 NXF_WORK = '/Users/hclimente/.nextflow/work'
 
 profiles {

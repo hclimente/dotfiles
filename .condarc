@@ -4,6 +4,6 @@ channels:
   - pytorch
   - defaults
 channel_priority: strict
-auto_activate_base: false
+auto_activate_base: true
 report_errors: false
 env_prompt: ({name})

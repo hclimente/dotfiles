@@ -1,6 +1,6 @@
 ifeq ($(UNAME), Linux)
 endif
 ifeq ($(UNAME), Darwin)
-	CC=/usr/local/Cellar/llvm/10.0.0_3/bin/clang
-	CXX=/usr/local/Cellar/llvm/10.0.0_3/bin/clang++
+	CC=/usr/local/Cellar/llvm/15.0.6/bin/clang
+	CXX=/usr/local/Cellar/llvm/15.0.6/bin/clang++
 endif

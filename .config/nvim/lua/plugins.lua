@@ -8,17 +8,41 @@ end
 packer = require('packer')
 packer.startup(function()
 
+    use {'numToStr/Comment.nvim',
+         config = function() require('Comment').setup() end
+    }
+    use {'ms-jpq/coq_nvim', branch = 'coq'}
+    use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
+    use {'ms-jpq/coq.thirdparty', branch = '3p'}
     use {'lewis6991/gitsigns.nvim',
-        config = function() require('gitsigns').setup() end,
+         config = function() require('gitsigns').setup() end,
     }
     use 'morhetz/gruvbox'
     use {'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
-    use 'nvim-neorg/neorg'
+    use 'karb94/neoscroll.nvim'
     use 'Mxrcon/nextflow-vim'
+    use 'jose-elias-alvarez/null-ls.nvim'
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+    use {'nvim-neorg/neorg',
+         config = function()
+             require('neorg').setup {
+                 load = {
+                    ["core.defaults"] = {},
+                    ["core.norg.dirman"] = {
+                        config = {
+                            workspaces = {
+                                work = "~/projects/notes",
+                            }
+                        }
+                    }
+                }
+            }
+         end,
+         requires = "nvim-lua/plenary.nvim"
+    }
     use 'wbthomason/packer.nvim'
 	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -34,12 +58,17 @@ end)
 -- Plug 'vim-airline/vim-airline-themes'
 -- Plug 'airblade/vim-gitgutter'
 
+vim.g.coq_settings = { auto_start = 'shut-up' }
+require 'coq'
+
 require 'nvim-treesitter.install'.compilers = {'gcc'}
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python", "r" },
+  ensure_installed = { "norg", "python", "r" },
   sync_install = false,
   auto_install = true,
   highlight = {
     enable = true,
   },
 }
+
+require('neoscroll').setup()

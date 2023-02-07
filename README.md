@@ -100,21 +100,15 @@ Follow instructions from https://git-secret.io/ to encrypt/decrypt secrets.
 ```
 brew install --cask anki
 brew install --cask firefox
-brew install --cask pycharm-ce
 brew install --cask finicky
-brew install --cask dozer
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code
 brew install --cask spotify
-brew install --cask visual-studio-code
 brew install --cask docker
-brew install --cask alfred
 brew install --cask iina
-brew install --cask ferdi
 brew install cookiecutter
 brew install dvc
 brew install --cask zotero
-
-wget https://raw.githubusercontent.com/thisiscam/math-with-slack/master/math-with-slack.py && sudo python math-with-slack.py && rm math-with-slack.py
+brew install --cask aerial
 ```
 
 # For older servers

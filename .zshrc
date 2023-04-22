@@ -121,7 +121,7 @@ alias vi="nvim"
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)     . $HOME/.linuxbrew/etc/profile.d/z.sh;;
-    Darwin*)    . /usr/local/etc/profile.d/z.sh;;
+    Darwin*)    . $(brew --prefix)/etc/profile.d/z.sh
 esac
 
 # my scripts

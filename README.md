@@ -27,15 +27,19 @@ export PATH=$HOME/.linuxbrew/bin:$PATH
 # install zsh and oh-my-zsh
 brew install zsh bash-completion
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+## install plugins
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zdharma/fast-syntax-highlighting.git \
-  ~ZSH_CUSTOM/plugins/fast-syntax-highlighting
+git clone https://github.com/z-shell/F-Sy-H.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/F-Sy-H
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 mv .zshrc.pre-oh-my-zsh .zshrc
 echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 
 # basic cli tools
-brew install tmux gcc findutils z exa nvim rg bat node
+brew install tmux gcc findutils z exa nvim rg bat node fzf
 
 # install 
 git clone https://github.com/gpakosz/.tmux.git ~/.oh-my-tmux

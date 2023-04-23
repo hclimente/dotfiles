@@ -1,13 +1,20 @@
 -- autoinstall packer
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+        return false
 end
 
-packer = require('packer')
-packer.startup(function()
+local packer_bootstrap = ensure_packer()
 
+return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
+    -- My plugins here
     use {'numToStr/Comment.nvim',
          config = function() require('Comment').setup() end
     }
@@ -31,7 +38,7 @@ packer.startup(function()
              require('neorg').setup {
                  load = {
                     ["core.defaults"] = {},
-                    ["core.norg.dirman"] = {
+                    ["core.dirman"] = {
                         config = {
                             workspaces = {
                                 work = "~/projects/notes",
@@ -43,32 +50,31 @@ packer.startup(function()
          end,
          requires = "nvim-lua/plenary.nvim"
     }
-    use 'wbthomason/packer.nvim'
 	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'tpope/vim-fugitive'
     use 'farmergreg/vim-lastplace'
 
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        require('packer').sync()
+    end
+
+    vim.g.coq_settings = { auto_start = 'shut-up' }
+    require 'coq'
+
+    require 'nvim-treesitter.install'.compilers = {'gcc'}
+    require 'nvim-treesitter.configs'.setup {
+        ensure_installed = { "norg", "python", "r" },
+        sync_install = false,
+        auto_install = true,
+        highlight = {
+            enable = true,
+        },
+    }
+
+    require('neoscroll').setup()
+
 end)
 
--- Plug 'neoclide/coc.nvim', {'branch': 'release'}
--- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
--- Plug 'lervag/vimtex'
--- Plug 'vim-airline/vim-airline'
--- Plug 'vim-airline/vim-airline-themes'
--- Plug 'airblade/vim-gitgutter'
-
-vim.g.coq_settings = { auto_start = 'shut-up' }
-require 'coq'
-
-require 'nvim-treesitter.install'.compilers = {'gcc'}
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "norg", "python", "r" },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-  },
-}
-
-require('neoscroll').setup()

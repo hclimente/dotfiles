@@ -105,24 +105,7 @@ export VISUAL="$EDITOR"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # aliases
-alias thal='ssh thalassa'
-alias zeus='ssh hector@zeus.upf.edu'
-alias jn='jupyter lab'
 unalias rm
-
-## faster defaults 
-alias grep="rg"
-alias cat="bat -p"
-alias less="bat"
-alias ls="exa -ll"
-alias vi="nvim"
-
-# z https://github.com/rupa/z
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     . $HOME/.linuxbrew/etc/profile.d/z.sh;;
-    Darwin*)    . $(brew --prefix)/etc/profile.d/z.sh
-esac
 
 # my scripts
 export PYTHONPATH=$HOME/projects/spada:${PYTHONPATH}
@@ -153,9 +136,24 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+conda activate general
+
 ## r
 alias R='R --no-save'
 alias Rscript='Rscript --vanilla'
+
+## faster defaults 
+alias_if_exists() {
+    if command -v $2 >/dev/null; then
+        alias $1=$2
+    fi
+}
+
+alias_if_exists grep rg
+alias_if_exists cat "bat -p"
+alias_if_exists less "bat"
+alias_if_exists ls "exa -ll"
+alias_if_exists vi "nvim"
 
 # fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -241,9 +239,3 @@ export HOSTLOC
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hclimente/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hclimente/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/hclimente/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hclimente/google-cloud-sdk/completion.zsh.inc'; fi

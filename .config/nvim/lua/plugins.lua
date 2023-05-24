@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
     use {'numToStr/Comment.nvim',
          config = function() require('Comment').setup() end
     }
+    use {'github/copilot.vim', branch = 'release'}
     use {'ms-jpq/coq_nvim', branch = 'coq'}
     use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
     use {'ms-jpq/coq.thirdparty', branch = '3p'}

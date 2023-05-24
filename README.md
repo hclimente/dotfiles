@@ -99,7 +99,7 @@ dit secret reveal
 
 Follow instructions from https://git-secret.io/ to encrypt/decrypt secrets.
 
-# Additional macOS software
+# Additional macOS software and configurations
 
 ```
 brew install --cask anki
@@ -113,6 +113,10 @@ brew install cookiecutter
 brew install dvc
 brew install --cask zotero
 brew install --cask aerial
+```
+
+```
+defaults write -g ApplePressAndHoldEnabled -bool true
 ```
 
 # For older servers

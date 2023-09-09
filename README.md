@@ -108,7 +108,7 @@ brew install --cask finicky
 brew install --cask hiddenbar
 brew install --cask kitty
 brew install --cask mtmr # for macbooks with a touchbar
-brew tap homebrew/cask-fonts && brew install --cask font-fira-code
+brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono
 brew install --cask spotify
 brew install --cask docker
 brew install --cask iina

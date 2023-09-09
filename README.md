@@ -105,6 +105,9 @@ Follow instructions from https://git-secret.io/ to encrypt/decrypt secrets.
 brew install --cask anki
 brew install --cask firefox
 brew install --cask finicky
+brew install --cask hiddenbar
+brew install --cask kitty
+brew install --cask mtmr # for macbooks with a touchbar
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code
 brew install --cask spotify
 brew install --cask docker
@@ -113,6 +116,10 @@ brew install cookiecutter
 brew install dvc
 brew install --cask zotero
 brew install --cask aerial
+
+# hide native tabs in Firefox
+# https://gist.github.com/ruanbekker/f800e098936b27c7cf956c56005fe362
+# https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#for-userchromecss
 ```
 
 ```

@@ -39,7 +39,7 @@ mv .zshrc.pre-oh-my-zsh .zshrc
 echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 
 # basic cli tools
-brew install tmux gcc findutils z exa nvim rg bat node fzf
+brew install tmux gcc findutils z eza nvim rg bat node fzf
 
 # install 
 git clone https://github.com/gpakosz/.tmux.git ~/.oh-my-tmux
@@ -117,6 +117,10 @@ brew install --cask aerial
 
 ```
 defaults write -g ApplePressAndHoldEnabled -bool true
+```
+
+```
+ln -s $HOME/.config/firefox/userChrome.css
 ```
 
 # For older servers

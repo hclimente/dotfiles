@@ -155,7 +155,7 @@ alias_if_exists() {
 alias_if_exists grep rg
 alias_if_exists cat "bat -p"
 alias_if_exists less "bat"
-alias_if_exists ls "exa -ll"
+alias_if_exists ls "eza -ll"
 alias_if_exists vi "nvim"
 
 # fuzzy search

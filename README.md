@@ -41,10 +41,8 @@ echo "source $DOTFILES_CFG/bashrc" >>.bashrc
 # basic cli tools
 brew install tmux gcc findutils z eza nvim rg bat node fzf
 
-# install 
-git clone https://github.com/gpakosz/.tmux.git ~/.oh-my-tmux
-ln -s -f ~/.oh-my-tmux/.tmux.conf ~/.tmux.conf
-cp ~/.oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
+# tmux plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # nextflow
 brew cask install java
@@ -108,7 +106,7 @@ brew install --cask finicky
 brew install --cask hiddenbar
 brew install --cask kitty
 brew install --cask mtmr # for macbooks with a touchbar
-brew tap homebrew/cask-fonts && brew install --cask font-jetbrains-mono
+brew tap homebrew/cask-fonts && brew install font-jetbrains-mono-nerd-font
 brew install --cask spotify
 brew install --cask docker
 brew install --cask iina

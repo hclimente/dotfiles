@@ -34,23 +34,6 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
-    use {'nvim-neorg/neorg',
-         config = function()
-             require('neorg').setup {
-                 load = {
-                    ["core.defaults"] = {},
-                    ["core.dirman"] = {
-                        config = {
-                            workspaces = {
-                                work = "~/projects/notes",
-                            }
-                        }
-                    }
-                }
-            }
-         end,
-         requires = "nvim-lua/plenary.nvim"
-    }
 	use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'tpope/vim-fugitive'

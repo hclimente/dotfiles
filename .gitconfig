@@ -1,12 +1,14 @@
 [user]
 	email = hclimente@gmail.com
 	name = Héctor Climente-González
+	signingkey = C849AC5D5DC79FA4
 
 [color]
   ui = auto
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = delta
 
 [push]
 	default = simple
@@ -22,3 +24,11 @@
 	required = true
 [credential]
 	helper = cache
+[commit]
+	gpgsign = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3

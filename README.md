@@ -13,6 +13,8 @@ dit checkout
 dit config status.showUntrackedFiles no
 ```
 
+Then, run the [script for Mac](.install/mac_config.sh) and/or for [Unix](.install/unix_config.sh).
+
 Inspired by [this tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 
 # Installation

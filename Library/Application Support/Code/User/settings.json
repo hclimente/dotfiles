@@ -1,0 +1,8 @@
+{
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+    "editor.fontLigatures": true,
+    "git.confirmSync": false,
+    "window.zoomLevel": 2.8,
+    "explorer.excludeGitIgnore": true,
+    "workbench.colorTheme": "Gruvbox Dark Medium"
+}

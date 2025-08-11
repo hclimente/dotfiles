@@ -1,19 +1,10 @@
 ```
-alias dit="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-git clone --bare git@github.com:hclimente/dotfiles.git $HOME/.cfg/
-dit checkout
-if [ $? = 0 ]; then
-  echo "Checked out config.";
-else
-  mkdir -p dotfiles-backup/.config dotfiles-backup/.nextflow
-  echo "Backing up pre-existing dot files.";
-  dit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} dotfiles-backup/{}
-fi;
-dit checkout
-dit config status.showUntrackedFiles no
+git clone git@github.com:hclimente/dotfiles.git .dotfiles
+brew install stow
+cd .dotfiles && stow .
 ```
 
-Then, run the [script for Mac](.install/mac_config.sh) and/or for [Unix](.install/unix_config.sh).
+Then, run the [script for MacOS](install/mac_config.sh) and/or for [Unix](install/unix_config.sh).
 
 Inspired by [this tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 
@@ -50,7 +41,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 brew cask install java
 curl -s https://get.nextflow.io | bash
 mkdir bin && mv nextflow bin/
-dit reveal
 
 # conda environments
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda

@@ -1,8 +1,12 @@
 # terminal
+# required tools
+pip3 install pre-commit
+
+# terminal
 ## oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-## starhip theme
+## starship theme
 curl -sS https://starship.rs/install.sh | sh
 
 ## plugins

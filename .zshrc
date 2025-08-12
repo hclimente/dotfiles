@@ -211,6 +211,50 @@ else
 fi
 export HOSTLOC
 
+# -------------------------------------------------------------------------------------
+# Build a cacert.pem trust store for command line tools and development
+# -------------------------------------------------------------------------------------
+
+# Generate custom CA_BUNDLEs from MacOS keychain
+# The following will generate a fresh cacerts.pem file from the contents of the MacOS Keychain
+# System and SystemRoot stores which is managed by Corp and should include an up-to-date list of trusted
+# Root Certification Authorities, including the zScaler Root CA.
+# Run only once a day to avoid disruption
+
+[[ ! -d ~/certificates ]] && echo "Creating ~/certificates directory" && mkdir -p ~/certificates
+[[ -f ~/certificates/LASTUPDATE ]] && LASTUPDATE=$(cat ~/certificates/LASTUPDATE) || LASTUPDATE=""
+TODAY=$(date +%Y-%m-%d)
+
+# The update argument allows us to force update the cacert.pem file from the System Keychain
+if [[ ${UPDATECABUNDLE} -eq 1 || "${LASTUPDATE}" != "${TODAY}" ]]
+then
+  SYSTEMROOTCERTS=$(security export -t certs -f pemseq -k /System/Library/Keychains/SystemRootCertificates.keychain)
+  SYSTEMCERTS=$(security export -t certs -f pemseq -k /Library/Keychains/System.keychain)
+  echo -e "${SYSTEMROOTCERTS}\n${SYSTEMCERTS}" > ~/certificates/cacert.pem
+  echo ${TODAY} > ~/certificates/LASTUPDATE
+  echo "Generated a fresh ~/certificates/cacert.pem file."
+fi
+
+# -------------------------------------------------------------------------------------
+# Export environment variables for terminal tools to use the cacert.pem file
+# -------------------------------------------------------------------------------------
+
+# Export environment variables to expose the new cacert.pem file to
+# tools like Python Requests, AWSCLI, etc.
+CACERT=${HOME}/certificates/cacert.pem
+if [[ ${NOCABUNDLE} -eq 0 ]]; then
+  export AWS_CA_BUNDLE=${CACERT}
+  export REQUESTS_CA_BUNDLE=${CACERT}
+  export NODE_EXTRA_CA_CERTS=${CACERT}
+  export CURL_CA_BUNDLE=${CACERT}
+  export SSL_CERT_FILE=${CACERT}
+  #export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStore=${HOME}/certificates/jssecacerts"
+  export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStoreType=KeychainStore"
+fi
+
+# Display values of set environment variables
+[[ ${QUIET} -eq 0 ]] && for var in $(env | sort | grep -e proxy -e "${CACERT}" -e "JAVA_TOOL_OPTIONS" | cut -d= -f1); do printf "%-20s = $(printenv $var)\n" $var ; done
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 eval "$(starship init zsh)"
 

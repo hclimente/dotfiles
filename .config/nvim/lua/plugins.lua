@@ -15,6 +15,12 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     -- My plugins here
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+    }
     use {'numToStr/Comment.nvim',
          config = function() require('Comment').setup() end
     }

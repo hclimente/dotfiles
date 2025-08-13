@@ -46,16 +46,22 @@ brew install fzf
 brew install --cask anki
 brew install --cask firefox
 brew install --cask hiddenbar
+
 brew install --cask iterm2
+echo "iTerm2 installed. Change the following settings:"
+echo -e "\t- Settings > Profiles > hclimente's profile > Set as Default"
+
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask spotify
 brew install --cask docker
 brew install --cask iina
+
 brew install --cask zotero
 echo "Zotero installed. Install as well the following plugins:"
 echo -e "\t- Zotmoov"
 echo "Change the settings as follows:"
-echo "\t- Filename format: {{ year suffix="-" }}{{ firstCreator suffix="-" replaceFrom="\s+" replaceTo="_" regexOpts="g" }}{{ title truncate="100" replaceFrom="\s+" replaceTo="_" regexOpts="g" }}"
+echo -e "\t- Filename format: {{ year suffix="-" }}{{ firstCreator suffix="-" replaceFrom="\\s+" replaceTo="_" regexOpts="g" }}{{ title truncate="100" replaceFrom="\\s+" replaceTo="_" regexOpts="g" }}"
+
 brew install --cask visual-studio-code
 brew install --cask gpg-suite
 

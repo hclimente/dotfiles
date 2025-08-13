@@ -4,7 +4,7 @@
 #    name = John Doe
 
 [include]
-    path = ~/.host_gitconfig
+    path = ~/.host_gitconfig.toml
 
 [color]
     ui = auto

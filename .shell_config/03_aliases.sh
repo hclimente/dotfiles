@@ -11,3 +11,8 @@ alias_if_exists cat "bat -p"
 alias_if_exists less "bat"
 alias_if_exists ls "eza -ll"
 alias_if_exists vi "nvim"
+
+# useful aliases
+alias gh="history | grep"
+alias rs="screen -r"
+alias ss="screen -S"

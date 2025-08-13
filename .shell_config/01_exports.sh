@@ -2,6 +2,8 @@
 export TERM='xterm-256color'
 export EDITOR='vi'
 export VISUAL="$EDITOR"
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 # Locale
 export LANG=en_US.UTF-8

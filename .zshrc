@@ -255,6 +255,5 @@ fi
 # Display values of set environment variables
 [[ ${QUIET} -eq 0 ]] && for var in $(env | sort | grep -e proxy -e "${CACERT}" -e "JAVA_TOOL_OPTIONS" | cut -d= -f1); do printf "%-20s = $(printenv $var)\n" $var ; done
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 eval "$(starship init zsh)"
 

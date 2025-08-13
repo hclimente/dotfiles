@@ -1,17 +1,14 @@
 HOSTNAME="$(hostname)"
-DOTFILES_CFG=$HOME/.dotfiles-cfg/
+ENVS_PATH=$HOME/.dotfiles-cfg/environments
 
 # Determine HOSTTYPE based on hostname lists
-if grep --quiet "$HOSTNAME" "$DOTFILES_CFG/env/slurm_hosts"; then
-    source "$DOTFILES_CFG/env/slurm.sh"
+if grep --quiet "$HOSTNAME" "$ENVS_PATH/slurm_hosts"; then
+    source "$ENVS_PATH/slurm.sh"
     HOSTTYPE='cluster'
-elif grep --quiet "$HOSTNAME" "$DOTFILES_CFG/env/server_hosts"; then
+elif grep --quiet "$HOSTNAME" "$ENVS_PATH/server_hosts"; then
     HOSTTYPE='server'
-elif grep --quiet "$HOSTNAME" "$DOTFILES_CFG/env/laptop_hosts"; then
-    if which java > /dev/null; then
-        export JAVA_HOME=$(/usr/libexec/java_home)
-    fi
-    source "$DOTFILES_CFG/env/laptop.sh"
+elif grep --quiet "$HOSTNAME" "$ENVS_PATH/laptop_hosts"; then
+    source "$ENVS_PATH/laptop.sh"
     HOSTTYPE='laptop'
 else
     HOSTTYPE='unknown'

@@ -1,5 +1,5 @@
 # Safety first
-unalias rm
+unalias rm mv cp >/dev/null 2>/dev/null
 
 # R aliases
 alias R='R --no-save'

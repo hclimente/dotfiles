@@ -1,4 +1,3 @@
-# terminal
 # required tools
 pip3 install pre-commit
 

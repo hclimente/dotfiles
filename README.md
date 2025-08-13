@@ -37,4 +37,3 @@ brew install tmux gcc findutils z eza nvim rg bat node fzf
 # tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
-

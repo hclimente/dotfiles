@@ -40,7 +40,7 @@ brew install nvim
 brew install xan
 
 ### fuzzy search
-brew install fzf 
+brew install fzf
 
 ## GUI
 brew install --cask anki

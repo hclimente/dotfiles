@@ -18,5 +18,3 @@ if vim.fn.isdirectory('./env/') then
 else
     require("lspconfig").pyright.setup { }
 end
-
-

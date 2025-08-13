@@ -1,3 +1,2 @@
 // includeConfig "$DOTFILES_CFG/nextflow/tower"
 includeConfig "$DOTFILES_CFG/nextflow/config_$HOSTTYPE"
-

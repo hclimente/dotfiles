@@ -16,3 +16,12 @@ alias_if_exists vi "nvim"
 alias gh="history | grep"
 alias rs="screen -r"
 alias ss="screen -S"
+
+# Tmux aliases
+alias tm="tmux"                               # General tmux command
+alias tml="tmux list-sessions"                # List sessions
+alias tls="tmux list-sessions"                # Another common one for listing
+alias ta="tmux attach-session -t"             # Attach to a specific session
+alias tn="tmux new -s"                        # Create a new named session
+alias tks="tmux kill-session -t"              # Kill a specific session
+alias tksv="tmux kill-server"                 # Kill all tmux sessions/server

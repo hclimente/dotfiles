@@ -6,3 +6,15 @@ alias_if_exists() {
         alias "$1=$2" # Quote the entire alias assignment
     fi
 }
+
+gitinit() {
+    # Initialize a new git repository and set up pre-commit hooks
+    git init
+    if [ ! -f ./.pre-commit-config.yaml ]; then
+        cp ~/.dotfiles/git/pre-commit-template.yaml ./.pre-commit-config.yaml
+        pre-commit install
+        echo "✅ New git repo created with pre-commit hooks."
+    else
+        echo "⚠️ Git repo initialized, but .pre-commit-config.yaml already exists. Hooks not installed."
+    fi
+}

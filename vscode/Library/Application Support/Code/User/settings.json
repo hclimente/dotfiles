@@ -8,5 +8,6 @@
     "workbench.colorTheme": "Gruvbox Dark Medium",
     "workbench.settings.applyToAllProfiles": [
         "editor.tabSize"
-    ]
+    ],
+    "terminal.integrated.shellIntegration.environmentReporting": true
 }

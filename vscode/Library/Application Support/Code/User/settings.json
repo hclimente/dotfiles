@@ -9,5 +9,6 @@
     "workbench.settings.applyToAllProfiles": [
         "editor.tabSize"
     ],
-    "terminal.integrated.shellIntegration.environmentReporting": true
+    "terminal.integrated.shellIntegration.environmentReporting": true,
+    "jupyter.askForKernelRestart": false
 }

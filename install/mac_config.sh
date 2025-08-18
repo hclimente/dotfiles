@@ -51,6 +51,9 @@ brew install --cask iterm2
 echo "iTerm2 installed. Change the following settings:"
 echo -e "\t- Settings > Profiles > hclimente's profile > Set as Default"
 
+echo "Installing Shell Integration"
+curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | zsh
+
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask spotify
 brew install --cask docker

@@ -3,6 +3,10 @@
     "editor.fontLigatures": true,
     "git.confirmSync": false,
     "window.zoomLevel": 2.8,
+    "editor.tabSize": 4,
     "explorer.excludeGitIgnore": true,
-    "workbench.colorTheme": "Gruvbox Dark Medium"
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.tabSize"
+    ]
 }

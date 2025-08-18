@@ -15,3 +15,5 @@ fi
 
 # Clean up
 unset file SHELL_CONFIG_DIR
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

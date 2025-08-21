@@ -29,6 +29,8 @@ alias tksv="tmux kill-server"                 # Kill all tmux sessions/server
 # Git aliases
 alias gi="gitinit"
 alias gc="git commit"
+alias gca="git commit -a"
+alias gco="git checkout"
 alias gl="git pull"
 alias gp="git push"
 alias gst='git status'

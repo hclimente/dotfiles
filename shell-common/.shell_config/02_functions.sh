@@ -18,3 +18,12 @@ gitinit() {
         echo "⚠️ Git repo initialized, but .pre-commit-config.yaml already exists. Hooks not installed."
     fi
 }
+
+tssh() {
+    # SSH into a host and immediately attach to or create a tmux session
+    if [ -z "$1" ]; then
+        echo "Usage: tssh <hostname>"
+        return 1
+    fi
+    ssh "$1" -t "tmux -CC new -As main || tmux -CC attach -t main"
+}

@@ -10,5 +10,6 @@
         "editor.tabSize"
     ],
     "terminal.integrated.shellIntegration.environmentReporting": true,
-    "jupyter.askForKernelRestart": false
+    "jupyter.askForKernelRestart": false,
+    "git.openRepositoryInParentFolders": "never"
 }

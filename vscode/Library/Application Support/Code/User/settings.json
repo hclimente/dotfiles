@@ -10,5 +10,9 @@
         "editor.tabSize"
     ],
     "terminal.integrated.shellIntegration.environmentReporting": true,
-    "jupyter.askForKernelRestart": false
+    "jupyter.askForKernelRestart": false,
+    "telemetry.telemetryLevel": "off",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
 }

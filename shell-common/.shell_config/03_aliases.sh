@@ -25,3 +25,13 @@ alias ta="tmux attach-session -t"             # Attach to a specific session
 alias tn="tmux new -s"                        # Create a new named session
 alias tks="tmux kill-session -t"              # Kill a specific session
 alias tksv="tmux kill-server"                 # Kill all tmux sessions/server
+
+# Git aliases
+alias gi="gitinit"
+alias gc="git commit"
+alias gca="git commit -a"
+alias gco="git checkout"
+alias gd="git diff"
+alias gl="git pull"
+alias gp="git push"
+alias gst='git status'

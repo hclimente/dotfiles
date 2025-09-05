@@ -11,5 +11,6 @@
     ],
     "terminal.integrated.shellIntegration.environmentReporting": true,
     "jupyter.askForKernelRestart": false,
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.editor.empty.hint": "hidden"
 }

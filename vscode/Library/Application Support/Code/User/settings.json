@@ -12,5 +12,11 @@
     "terminal.integrated.shellIntegration.environmentReporting": true,
     "jupyter.askForKernelRestart": false,
     "git.openRepositoryInParentFolders": "never",
-    "workbench.editor.empty.hint": "hidden"
+    "workbench.editor.empty.hint": "hidden",
+    "telemetry.telemetryLevel": "off",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "jupyter.askForKernelRestart": false,
+    "git.openRepositoryInParentFolders": "never"
 }

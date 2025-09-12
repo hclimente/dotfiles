@@ -36,8 +36,8 @@ brew install fd
 brew install nvim
 
 ## CLI tools
-### csv/tsv viewer
-brew install xan
+### handle big data tables
+brew install duckdb
 
 ### fuzzy search
 brew install fzf

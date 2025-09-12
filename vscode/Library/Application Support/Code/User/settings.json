@@ -18,5 +18,11 @@
         "asvetliakov.vscode-neovim": 1
     },
     "jupyter.askForKernelRestart": false,
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    }
 }

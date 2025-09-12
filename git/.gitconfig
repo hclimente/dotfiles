@@ -14,7 +14,7 @@
 	pager = delta
 
 [push]
-	default = simple
+	default = current
 
 [pull]
     rebase = false

@@ -23,11 +23,11 @@ let g:netrw_winsize = 25
 " tabstop:          Width of tab character
 " softtabstop:      Fine tunes the amount of white space to be added
 " shiftwidth        Determines the amount of whitespace to add in normal mode
-" expandtab:        When this option is enabled, vi will use spaces instead of tabs
+" noexpandtab:      When this option is enabled, vi will not replace tabs by spaces
 set tabstop     =4
 set softtabstop =4
 set shiftwidth  =4
-set expandtab
+set noexpandtab
 
 " remap jj to esc
 :imap jj <Esc>

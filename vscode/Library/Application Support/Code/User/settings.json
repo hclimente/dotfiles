@@ -16,5 +16,6 @@
         "asvetliakov.vscode-neovim": 1
     },
     "jupyter.askForKernelRestart": false,
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "diffEditor.codeLens": true
 }

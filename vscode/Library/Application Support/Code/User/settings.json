@@ -19,6 +19,7 @@
     },
     "jupyter.askForKernelRestart": false,
     "git.openRepositoryInParentFolders": "never",
+    "diffEditor.codeLens": true,
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,

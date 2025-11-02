@@ -1,2 +1,1 @@
-// includeConfig "$DOTFILES_CFG/nextflow/tower"
-includeConfig "$HOME/.dotfiles-cfg/nextflow/config_$HOSTTYPE"
+includeConfig "${System.getenv('HOME')}/.dotfiles-cfg/nextflow/config_${System.getenv('HOSTTYPE')}"

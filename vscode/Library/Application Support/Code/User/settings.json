@@ -1,29 +1,61 @@
 {
+    // ========================================
+    // Editor Settings
+    // ========================================
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
-    "editor.fontLigatures": true,
-    "git.confirmSync": false,
-    "window.zoomLevel": 2.8,
-    "editor.tabSize": 4,
-    "explorer.excludeGitIgnore": true,
+    "editor.fontLigatures": true,  // Enable font ligatures for better code readability
+    "editor.tabSize": 4,           // Default tab size (applied to all profiles)
+
+    // ========================================
+    // Workbench Settings
+    // ========================================
     "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.editor.empty.hint": "hidden",       // Hide hints in empty editors
     "workbench.settings.applyToAllProfiles": [
-        "editor.tabSize"
+        "editor.tabSize"                           // Ensure tab size is consistent across all profiles
     ],
-    "terminal.integrated.shellIntegration.environmentReporting": true,
-    "jupyter.askForKernelRestart": false,
-    "git.openRepositoryInParentFolders": "never",
-    "workbench.editor.empty.hint": "hidden",
-    "telemetry.telemetryLevel": "off",
+    "window.zoomLevel": 2.8,                       // Adjust UI zoom for better visibility
+
+    // ========================================
+    // Explorer Settings
+    // ========================================
+    "explorer.confirmDelete": false,       // Don't ask for confirmation when deleting files
+    "explorer.confirmDragAndDrop": false,  // Don't ask for confirmation when dragging and dropping
+    "explorer.excludeGitIgnore": true,     // Hide files specified in .gitignore
+
+    // ========================================
+    // Diff Editor Settings
+    // ========================================
+    "diffEditor.codeLens": true,               // Show code lens in diff editor
+    "diffEditor.ignoreTrimWhitespace": false,  // Show whitespace changes in diffs
+
+    // ========================================
+    // Git Settings
+    // ========================================
+    "git.confirmSync": false,                      // Don't confirm before syncing
+    "git.openRepositoryInParentFolders": "never",  // Don't search parent folders for repositories
+
+    // ========================================
+    // Terminal Settings
+    // ========================================
+    "terminal.integrated.shellIntegration.environmentReporting": true, // Enable shell integration environment reporting
+
+    // ========================================
+    // Jupyter Settings
+    // ========================================
+    "jupyter.askForKernelRestart": false, // Don't ask for confirmation when restarting kernel
+
+    // ========================================
+    // Extension Settings
+    // ========================================
     "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+        "asvetliakov.vscode-neovim": 1                   // Run neovim extension in separate extension host
     },
-    "jupyter.askForKernelRestart": false,
-    "git.openRepositoryInParentFolders": "never",
-    "diffEditor.codeLens": true,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    }
+    "geminicodeassist.displayInlineContextHint": false,  // Disable inline context hints
+
+    // ========================================
+    // Privacy & Telemetry Settings
+    // ========================================
+    "telemetry.telemetryLevel": "off",       // Disable all telemetry data collection
+    "nextflow.telemetry.enabled": false      // Disable Nextflow telemetry
 }
